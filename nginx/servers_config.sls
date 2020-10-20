@@ -131,6 +131,8 @@ nginx_server_available_dir:
     - unless:
       - test -e {{ server_curpath(server) }}
     {% endif %}
+    - require:
+      - file: nginx_server_available_dir
 {% do server_states.append(conf_state_id) %}
 {% endif %}
 {% endif %}
